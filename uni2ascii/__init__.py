@@ -22,7 +22,7 @@
 
 import argparse
 import logging
-import re
+import re2
 import unicodedata
 import sys
 
@@ -52,12 +52,12 @@ def uni2ascii(line):
 
     if Global.translits is None:
         Global.translits = get_translits()
-        Global.unicodere = re.compile(
+        Global.unicodere = re2.compile(
             "|".join(
-                map(re.escape, sorted(Global.translits.keys(), key=len, reverse=True))
+                map(re2.escape, sorted(Global.translits.keys(), key=len, reverse=True))
             )
         )
-    return re.sub(
+    return re2.sub(
         Global.unicodere,
         lambda mo: Global.translits[mo.group()],
         unicodedata.normalize("NFC", line),
@@ -286,7 +286,7 @@ def main():
         # If there's remaining non-ascii, handle it according to arguments.
         # The default is to leave the line alone.
 
-        if re.search(r"[^\x00-\x7f]", line):
+        if re2.search(r"[^\x00-\x7f]", line):
             if Global.args.e:
                 logging.error("Unexpected non-ascii. The line was:\n%s\n", line)
                 sys.exit(1)
@@ -297,7 +297,7 @@ def main():
                     replace = ""
                 else:
                     replace = Global.args.r
-                line = re.sub(r"[^\x00-\x7f]+", replace, line).strip()
+                line = re2.sub(r"[^\x00-\x7f]+", replace, line).strip()
         # If we get here, we should print a line
         print(line, end="")
 

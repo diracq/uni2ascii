@@ -12,6 +12,7 @@ authors = [
 ]
 license = {file = "LICENSE"}
 requires-python = ">=3.6"
+dependencies = ["google-re2"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: BSD License",
