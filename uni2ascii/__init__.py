@@ -69,17 +69,20 @@ def get_translits():
     Convenience function to make it easy to add translits in place.
     Returns a dict of unicode=>ascii.
     """
+
+    # removed the following, as they are used for exponents intentionally
+    # ²       2
+    # ³       3
+    # ⁴       4
+    # ⁵       5
+    # ⁶       6
+    # ⁷       7
+    # ⁸       8
+    # ⁹       9
+    # ⁰       0
+
     translitstr = """
 ¡       i
-²       2
-³       3
-⁴       4
-⁵       5
-⁶       6
-⁷       7
-⁸       8
-⁹       9
-⁰       0
 ❶       1
 ❷       2
 ❸       3
