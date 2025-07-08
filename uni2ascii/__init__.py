@@ -80,6 +80,8 @@ def get_translits():
     # ⁸       8
     # ⁹       9
     # ⁰       0
+    # ₁       1
+    # ₂       2
 
     translitstr = """
 ¡       i
@@ -230,8 +232,6 @@ def get_translits():
 …       ...
 ′       '
 ⁄        /
-₁       1
-₂       2
 ∕       /
 ≤       <=
 ≥       >=
